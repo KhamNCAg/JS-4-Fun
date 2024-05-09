@@ -1,25 +1,19 @@
-document.getElementById('incrementBtn').addEventListener('click',incrementFn);
-document.getElementById('decrementBtn').addEventListener('click',decrementFn);
-document.getElementById('resetBtn').addEventListener('click',resetFn);
+document.getElementById('checkButton').addEventListener('click',checkPlaindrome);
 
-let cntrDisplay = document.getElementById('counterDisplay');
-let cntrVlu = 0;
+function isPlaindrome(str){
+    const smStr = str.toLowerCase();
 
-function updateCntrDisplay(){
-    cntrDisplay.textContent = cntrVlu;
+    const rvrseStr = smStr.split('').reverse().join('');
+    console.log(rvrseStr);
+    return smStr === rvrseStr;
 }
 
-function incrementFn(){
-    cntrVlu++;
-    updateCntrDisplay();
-}
-
-function decrementFn(){
-    cntrVlu--;
-    updateCntrDisplay();
-}
-
-function resetFn(){
-    cntrVlu = 0;
-    updateCntrDisplay();
+function checkPlaindrome(){
+    const inpt = document.getElementById("inputText").value;
+    const result = document.getElementById("result");
+    if(isPlaindrome(inpt)){
+        result.textContent = `"${inpt}" is a Palindrome`;
+    }else{
+        result.textContent = `"${inpt}" is not a Palindrome`;
+    }
 }
