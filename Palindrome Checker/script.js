@@ -16,4 +16,7 @@ function checkPlaindrome(){
     }else{
         result.textContent = `"${inpt}" is not a Palindrome`;
     }
+
+    result.classList.add('fadeIn');
+    inpt = "";
 }
