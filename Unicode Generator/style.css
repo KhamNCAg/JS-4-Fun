@@ -1,12 +1,6 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: sans-serif;
-}
-
 body{
-    background-color: #1a1a1a;
+    font-family: sans-serif;
+    background-color: #f2f2f2;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -14,63 +8,52 @@ body{
 }
 
 .container{
-    width: 35.87em;
-    display: grid;
-    align-items: center;
-    grid-template-columns: 8fr 4fr;
-    background-color: #1e90ff;
-    border-radius: 0.5em;
-    animation: neon-light-glow 1.5s ease-in-out infinite alternate;
+    background-color: #ffffff;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+    margin: 0 auto;
 }
 
-.clock-container{
-    background-color: #1a1a1a;
+h2{
+    color: #333;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+input[type="text"]{
+    width: 100%;
+    height: 40px;
+    margin-bottom: 20px;
+    padding: 5px;
+    font-size: 16px;
+    border: none;
+    border-bottom: 2px solid #ff4081;
+}
+
+input[type="text"]:focus{
+    border-color: #d85f83;
+    outline: none;
+}
+
+button{
+    padding: 10px 20px;
+    background-color: #ff4081;
     color: #fff;
-    text-align: center;
-    font-size: 3.75em;
-    margin-left: 0.2em;
-    border-radius: 0.1em;
-    padding: 0.2em 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.clock-container span{
-    width: 120px;
-    display: inline-block;
-    text-align: center;
-}
-
-.hours{
-    color: #ff0000;
-}
-
-.minutes{
-    color: #00ff00;
-}
-
-.seconds{
-    color: #0000ff;
-}
-
-@keyframes neon-light-glow{
-    0%{
-        box-shadow: 0 0 5px #ffffff, 0 0 20px #ffffff;
-    }
-    100%{
-        box-shadow: 0 0 20px #ffffff, 0 0 40px #ffffff;
-    }
-}
-
-.date-container{
-    padding: 10px;
-    background-color: #2784e0;
-    color: #fff;
-    text-align: center;
+    border: none;
+    font-weight: 700;
     border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.5s ease;
 }
 
-.date-container span{
-    font-size: 2.5em;
+button:hover{
+    background-color: #f50057;
+}
+
+#result{
+    font-size: 18px;
+    margin-top: 20px;
 }
