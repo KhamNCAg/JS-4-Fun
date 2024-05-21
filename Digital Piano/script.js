@@ -1,23 +1,26 @@
-var keyName, preKey;
+var keyName;
 const tmpObj = [];
 function startSound(frequency,keyIndx){
   // console.log(keyIndx + "start");
-  var tmpCont = new AudioContext()
-  var tmpOsci = tmpCont.createOscillator()
-  var tmpGain = tmpCont.createGain()
-  tmpOsci.connect(tmpGain)
-  tmpGain.connect(tmpCont.destination)
-  tmpOsci.frequency.value = frequency
-  // tmpOsci.type = "triangle"
-  tmpOsci.type = "sine"
-  tmpOsci.start(0)
+  var tmpCont = new AudioContext();
+  var tmpOsci = tmpCont.createOscillator();
+  var tmpGain = tmpCont.createGain();
+
+  console.log(tmpCont.state);
+
+  tmpOsci.connect(tmpGain);
+  tmpGain.connect(tmpCont.destination);
+  tmpOsci.frequency.value = frequency;
+  // tmpOsci.type = "triangle";
+  tmpOsci.type = "sine";
+  tmpOsci.start(0);
   tmpObj[keyIndx] = new Array(tmpCont, tmpOsci, tmpGain, true);
 }
 
 function stopSound(keyIndx){
   // console.log(keyIndx + "stop");
-  tmpObj[keyIndx][2].gain.exponentialRampToValueAtTime(0.00001, tmpObj[keyIndx][0].currentTime + 1.5 )
-  tmpObj[keyIndx][1].stop(tmpObj[keyIndx][0].currentTime + 1.5)
+  tmpObj[keyIndx][2].gain.exponentialRampToValueAtTime(0.00001, tmpObj[keyIndx][0].currentTime + 1.5 );
+  tmpObj[keyIndx][1].stop(tmpObj[keyIndx][0].currentTime + 1.5);
   tmpObj[keyIndx][3] = 0;
 }
 
